@@ -4,10 +4,12 @@ const observer = new IntersectionObserver((entries) => {
     });
 });
 
-// Assign hidden class to all entries, this is incase JS is disabled
+// Assign hidden class to all entries that are visible, this is incase JS is disabled
 const utils = document.body.querySelectorAll('*');
 utils.forEach((util) => {
-    util.classList.add('hidden');
+    if (util.checkVisibility()) {
+        util.classList.add('hidden');
+    }
 });
 
 utils.forEach((util) => {
