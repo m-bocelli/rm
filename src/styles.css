@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&display=swap');
+
+:root {
+	--fonts: 'Fira Code', Arial;
+	--color-text: aquamarine;
+	font-family: var(--fonts);
+	color: var(--color-text);
+}
+
+.hidden {
+	opacity: 0;
+	transform: translateX(-100%);
+	transition-duration: 0.5s;
+	transition-property: transform, opacity;
+}
+
+.show {
+	opacity: 1;
+	transform: translateX(0);
+}
