@@ -6,5 +6,5 @@
 </svelte:head>
 
 <section>
-	<div>hi</div>
+	<h1>Library</h1>
 </section>
