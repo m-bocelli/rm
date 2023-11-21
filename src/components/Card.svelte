@@ -24,13 +24,6 @@
         padding: 1rem;
     }
 
-    .card_rarity::after {
-        content: '';
-        background-color: #fff;
-        width: 100%;
-        line-height: 2px;
-    }
-
     .card_img {
         border-radius: 10px;
     }

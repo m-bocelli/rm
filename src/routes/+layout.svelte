@@ -14,6 +14,7 @@
 	nav {
 		display: flex;
 		justify-content: center;
+		width: 100vw;
 	}
 
 	nav div, a {
@@ -28,6 +29,7 @@
 	a:hover {
 		color: black;
 		font-size: larger;
+		box-shadow: 10px 10px black;
 	}
 </style>
 
