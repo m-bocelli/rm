@@ -1,5 +1,6 @@
 import 'dotenv/config';
-import getDatabase from '$lib/database.js';
+import { getAllCards } from '$lib/server/database/index.js';
+
 // api/cards GET
 export async function GET({ request }) {
     const authHeader = request.headers.get('Authorization');
@@ -7,15 +8,7 @@ export async function GET({ request }) {
         return new Response('Invalid credentials', {status: 401});
     }
 
-    const db = getDatabase();
+    const data = getAllCards();
 
-    db.all('SELECT * FROM all_cards', (err, rows) => {
-        if (err) {
-            return new Response('Failed to fetch data', {status: 500});
-        } else {
-            data = rows;
-        }
-    })
-
-    return new Response([1,2], {status: 200, headers: {library: 'it\'s the lib broh'}})
+    return new Response(JSON.stringify(data), {status: 200, headers: {library: 'it\'s the lib broh'}})
 }
