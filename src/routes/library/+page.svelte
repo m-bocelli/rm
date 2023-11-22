@@ -1,8 +1,9 @@
 <script>
-    import Card from "../../components/Card.svelte";
+    import { goto } from '$app/navigation';
+	import CardList from '../../components/CardList.svelte';
 
     export let data;
-    let { cards } = data;
+    let { cards, pageNum, pageSize } = data;
 
     let searchTerm = '';
 
@@ -15,6 +16,10 @@
 				cards = data;
 			});
 	}
+
+    function paginate(page) {
+        goto(`?page=${page}`);
+    }
 </script>
 
 <h1>library</h1>
@@ -24,9 +29,13 @@
     <button type="submit">find</button>
 </div>
 
-{#each cards as card}
-    <a href="/library/{card.id}" data-sveltekit-preload-data>{card.name}</a>
-{/each}
+<CardList bind:cards={cards}/>
+
+<div class="page-control">
+    <button on:click={() => paginate(--pageNum)}>prev</button>
+    <div>page {pageNum}</div>
+    <button on:click={() => paginate(++pageNum)}>next</button>
+</div>
 
 <style>
     .search {
