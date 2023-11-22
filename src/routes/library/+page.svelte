@@ -3,7 +3,7 @@
 	import CardList from '../../components/CardList.svelte';
 
     export let data;
-    let { cards, pageNum, pageSize } = data;
+    $: ({ cards, pageNum, pageSize } = data);
 
     let searchTerm = '';
 
@@ -29,7 +29,7 @@
     <button type="submit">find</button>
 </div>
 
-<CardList bind:cards={cards}/>
+<CardList cards={cards}/>
 
 <div class="page-control">
     <button on:click={() => paginate(--pageNum)}>prev</button>

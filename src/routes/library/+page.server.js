@@ -8,7 +8,6 @@ export async function load({ fetch, url }) {
     const fetchCards = async () => {
         const res = await fetch(`/api/cards?page=${page}&pageSize=${pageSize}`, {headers: {'Authorization': process.env.ADMIN_API_KEY}});
         const data = await res.json();
-        console.log(data);
         return data;
     }
     
