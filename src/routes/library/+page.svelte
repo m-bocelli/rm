@@ -1,11 +1,12 @@
 <script>
     import Card from "../../components/Card.svelte";
 
-    const character = {id: 1, name: 'Mikey', rarity: 99, status: 'Dead', gender: 'Male', type: 'Human', origin: 'PA'};
+    export let data;
+    const { cards } = data;
 </script>
 
 <h1>library</h1>
 
-<main>
-    <Card char={character}></Card>
-</main>
+{#each cards as card}
+    <h2>{card.name}</h2>
+{/each}
