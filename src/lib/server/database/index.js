@@ -9,3 +9,9 @@ export function getAllCards() {
     const rows = stmnt.all();
     return rows;
 }
+
+export function getCard(id) {
+    const stmnt = db.prepare(`SELECT * FROM all_cards WHERE id = ${id}`);
+    const row = stmnt.get();
+    return row;
+}

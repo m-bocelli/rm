@@ -2,7 +2,7 @@
     import Card from "../../components/Card.svelte";
 
     export let data;
-    const { cards } = data;
+    $: ({ cards } = data)
 </script>
 
 <h1>library</h1>
