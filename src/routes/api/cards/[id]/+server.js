@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import { getCard } from '$lib/server/database/index.js';
 
-// api/cards GET
+// api/cards/[id] GET
 export async function GET({ params, request }) {
     const authHeader = request.headers.get('Authorization');
     if (authHeader !== process.env.ADMIN_API_KEY) {

@@ -18,7 +18,7 @@ db.run(`
     );
 `);
 
-const db_json = JSON.parse(fs.readFileSync('card_data.json', 'utf-8')).library;
+const db_json = JSON.parse(fs.readFileSync('/data/card_data.json', 'utf-8')).library;
 
 const insert = db.prepare(`
         INSERT INTO all_cards (id, name, image, origin, rarity, status, type, gender, price) 

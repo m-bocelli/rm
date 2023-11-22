@@ -15,3 +15,15 @@ export function getCard(id) {
     const row = stmnt.get();
     return row;
 }
+
+export function findCards(searchTerm) {
+    const stmnt = db.prepare(`SELECT * FROM all_cards WHERE LOWER(name) LIKE LOWER('%' || '${searchTerm}' || '%')`);
+    const rows = stmnt.all();
+    return rows;
+}
+
+export function getCardsByPage(page, pageSize) {
+    const stmnt = db.prepare(`SELECT * FROM all_cards LIMIT ${pageSize} OFFSET ${(page - 1) * pageSize}`);
+    const rows = stmnt.all();
+    return rows;
+}
