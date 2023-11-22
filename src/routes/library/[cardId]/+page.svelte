@@ -1,7 +1,6 @@
 <script>
     export let data;
-    console.log(data)
+    const { card } = data;
 </script>
 
-<h1>Slug page broh</h1>
-<h2>h</h2>
+<h1>{card.name}</h1>

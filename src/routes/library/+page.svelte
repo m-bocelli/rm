@@ -8,5 +8,5 @@
 <h1>library</h1>
 
 {#each cards as card}
-    <h2>{card.name}</h2>
+    <a href="/library/{card.id}" data-sveltekit-preload-data>{card.name}</a>
 {/each}
