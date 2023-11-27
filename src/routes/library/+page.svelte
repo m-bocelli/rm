@@ -32,12 +32,17 @@
 <CardList cards={cards}/>
 
 <div class="page-control">
-    <button on:click={() => paginate(--pageNum)}>prev</button>
+    <button on:click={() => paginate(--pageNum)} disabled={pageNum<=1}>prev</button>
     <div>page {pageNum}</div>
-    <button on:click={() => paginate(++pageNum)}>next</button>
+    <button on:click={() => paginate(++pageNum)} disabled={cards.length<pageSize}>next</button>
 </div>
 
 <style>
+    .page-control {
+        display: flex;
+        justify-content: space-between;
+    }
+
     .search {
         display: flex;
     }

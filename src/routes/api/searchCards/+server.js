@@ -8,7 +8,7 @@ export function GET({url}) {
     let data = [];
     if (!searchTerm) {
         // db function
-        data = getAllCards();
+        data = getAllCards;
     } else {
         // db function
         data = findCards(searchTerm) ?? [];
